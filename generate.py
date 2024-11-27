@@ -27,9 +27,12 @@ pieces = list(range(w*h))
 
 pieces2 = list(range(w*h))
 for indices_to_shuffle in [
-    [(x,y) for x in range(1,w-1) for y in range(1,h-1)],
+    # [(x,y) for x in range(1,w-1) for y in range(1,h-1)],
+    [(x,y) for x in range(1,w-1) for y in range(1,h-1) if x+y%2 == 0],
+    [(x,y) for x in range(1,w-1) for y in range(1,h-1) if x+y%2 == 1],
     
-    side_indices
+    [(x,y) for x,y in side_indices if (x+y)%2 == 0],
+    [(x,y) for x,y in side_indices if (x+y)%2 == 1],
     
     # [(x,0) for x in range(1,w-1)],
     # [(x,h-1) for x in range(1,w-1)],
